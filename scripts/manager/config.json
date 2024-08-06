@@ -1,0 +1,20 @@
+{
+  "username": "ooeunoo",
+  "gateway": {
+    "image": "gateway",
+    "version": "v2",
+    "replicas": 1,
+    "port": 8080,
+    "env": {
+      "PARTY_NODES": "http://party:8081"
+    }
+  },
+  "party": {
+    "image": "party",
+    "version": "v2",
+    "replicas": 3,
+    "env": {
+      "NODE_NUMBER": "{{.Task.Slot}}"
+    }
+  }
+}
